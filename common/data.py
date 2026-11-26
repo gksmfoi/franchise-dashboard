@@ -4,10 +4,8 @@ from metrics import compute_score
 
 
 @st.cache_data
-def get_scores(year, min_stores, weight_items=None):
-    """weight_items: tuple(sorted(weights.items())). None이면 기본 가중치."""
-    weights = dict(weight_items) if weight_items else None
-    return compute_score(load_data(), year=year, min_stores=min_stores, weights=weights)
+def load_data():
+    return pd.read_parquet("data/brand_metrics.parquet")
 
 
 @st.cache_data
