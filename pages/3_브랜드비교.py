@@ -292,7 +292,7 @@ if has_base.any():
     b = bar[has_base]
     fig.add_trace(go.Scatter(
         x=b["name"], y=b["base"], mode="markers",
-        marker=dict(symbol="line-ew-open", size=70, line=dict(color=BASE_COLOR, width=3)),
+        marker=dict(symbol="line-ew-open", size=70, color=BASE_COLOR, line=dict(color=BASE_COLOR, width=3)),
         name=f"{region} 업종 평균 (기준선)",
         customdata=b["mid"],
         hovertemplate=f"{region} " + "%{customdata} 평균 %{y:,.0f}<extra></extra>",
@@ -313,7 +313,7 @@ for _, r in bar.iterrows():
                            yshift=18, font=dict(size=12, color="#6b6a65"))
 
 fig.update_layout(
-    yaxis=dict(title="면적당 평균 매출 (천원)", range=[0, ymax * 1.2], gridcolor="#e6e5e1"),
+    yaxis=dict(title="면적당 평균 매출", range=[0, ymax * 1.2], gridcolor="#e6e5e1"),
     legend=dict(orientation="h", y=1.12, x=0),
     bargap=0.45, plot_bgcolor="white",
     margin=dict(l=40, r=20, t=40, b=30), height=380,
